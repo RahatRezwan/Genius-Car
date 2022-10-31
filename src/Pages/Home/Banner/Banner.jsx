@@ -27,12 +27,12 @@ const Banner = () => {
                nextEl: ".button-next",
                prevEl: ".button-prev",
             }}
-            className="rounded-md relative"
+            className="rounded-[10px] relative"
          >
             {banners.map((banner) => (
                <SwiperSlide key={banner.id}>
                   <div
-                     className="h-[650px] text-white relative bg-cover bg-no-repeat bg-center flex items-center justify-start"
+                     className="h-[600px] text-white relative bg-cover bg-no-repeat bg-center flex items-center justify-start"
                      style={{
                         backgroundImage: `linear-gradient(90deg, #151515 0%, rgba(21, 21, 21, 0) 100%), url(${banner.img})`,
                      }}

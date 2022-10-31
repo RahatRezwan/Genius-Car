@@ -4,7 +4,7 @@ import logo from "../../../assets/icons/logo.svg";
 const Footer = () => {
    return (
       <div className="bg-[#151515]">
-         <footer className="footer py-[130px] text-white max-w-[1240px] mx-auto">
+         <footer className="footer py-[130px] text-white max-w-[1200px] mx-auto">
             <div>
                <img src={logo} alt="" />
                <p>ACME Industries Ltd.Providing reliable tech since 1992</p>

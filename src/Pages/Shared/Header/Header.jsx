@@ -13,7 +13,7 @@ const menuItems = [
 const Header = () => {
    return (
       <div>
-         <div className="navbar bg-base-100 max-w-[1240px] mx-auto my-[50px] p-0">
+         <div className="navbar bg-base-100 max-w-[1200px] mx-auto my-[50px] p-0">
             <div className="navbar-start">
                {/* Mobile Menu */}
                <div className="dropdown">
