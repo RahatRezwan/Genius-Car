@@ -13,7 +13,7 @@ const menuItems = [
 const Header = () => {
    return (
       <div>
-         <div className="navbar bg-base-100">
+         <div className="navbar bg-base-100 max-w-[1240px] mx-auto my-[50px] p-0">
             <div className="navbar-start">
                {/* Mobile Menu */}
                <div className="dropdown">
@@ -39,14 +39,16 @@ const Header = () => {
                   >
                      {menuItems.map((menu) => (
                         <li key={menu.id}>
-                           <Link to={menu.link}>{menu.item}</Link>
+                           <Link to={menu.link} className="font-semibold">
+                              {menu.item}
+                           </Link>
                         </li>
                      ))}
                   </ul>
                </div>
 
                {/* Logo */}
-               <Link className="btn btn-ghost normal-case text-xl">
+               <Link to="/">
                   <img src={logo} alt="" />
                </Link>
             </div>
@@ -56,7 +58,9 @@ const Header = () => {
                <ul className="menu menu-horizontal p-0">
                   {menuItems.map((menu) => (
                      <li key={menu.id}>
-                        <Link to={menu.link}>{menu.item}</Link>
+                        <Link to={menu.link} className="font-semibold">
+                           {menu.item}
+                        </Link>
                      </li>
                   ))}
                </ul>
