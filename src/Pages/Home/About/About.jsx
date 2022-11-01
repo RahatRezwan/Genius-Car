@@ -1,6 +1,4 @@
 import React from "react";
-import person from "../../../assets/images/about_us/person.jpg";
-import parts from "../../../assets/images/about_us/parts.jpg";
 
 const About = () => {
    return (
@@ -9,11 +7,11 @@ const About = () => {
             <div className="w-1/2 h-[557px] relative">
                <div
                   className="rounded-[10px] w-[473px] h-[460px] bg-cover bg-left"
-                  style={{ backgroundImage: `url(${person})` }}
+                  style={{ backgroundImage: `url("https://i.ibb.co/HVP3kJ5/person.jpg")` }}
                />
                <div
                   className="w-[327px] h-[332px] border-[10px] border-white bg-cover bg-center absolute right-[-15px] bottom-0"
-                  style={{ backgroundImage: `url(${parts})` }}
+                  style={{ backgroundImage: `url("https://i.ibb.co/db0nR22/parts.jpg")` }}
                />
             </div>
             <div className="w-1/2">
@@ -32,7 +30,7 @@ const About = () => {
                   the majority have suffered alteration in some form, by injected humour, or
                   randomised words which don't look even slightly believable.
                </p>
-               <button className="bg-[#FF3811] border-[1.5px] rounded-[5px] border-[#FF3811] py-[13px] px-[21px] text-[18px] text-white hover:bg-transparent hover:border-white">
+               <button className="bg-[#FF3811] border-[1.5px] rounded-[5px] border-[#FF3811] py-[13px] px-[21px] text-[18px] text-white hover:bg-transparent hover:text-[#FF3811]">
                   Get More Info
                </button>
             </div>
