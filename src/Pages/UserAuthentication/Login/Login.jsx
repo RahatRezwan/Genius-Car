@@ -20,7 +20,6 @@ const Login = () => {
       /* Login a user */
       loginAUser(email, password)
          .then((result) => {
-            const user = result.user;
             form.reset();
          })
          .catch((e) => console.log(e));

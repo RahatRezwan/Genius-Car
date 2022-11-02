@@ -21,7 +21,6 @@ const Register = () => {
       /* Create a user */
       createAUser(email, password)
          .then((result) => {
-            const user = result.user;
             form.reset();
          })
          .catch((e) => console.log(e));
