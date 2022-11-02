@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import loginImg from "../../../assets/images/login/login.svg";
 import facebook from "../../../assets/images/social/facebook.svg";
 import google from "../../../assets/images/social/google.svg";
 import linkedin from "../../../assets/images/social/linkedin.svg";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Login = () => {
+   const { loginAUser } = useContext(AuthContext);
+
    const handleLogin = (event) => {
       event.preventDefault();
       const form = event.target;
+      const email = form.email.value;
+      const password = form.password.value;
+
+      console.log(email, password);
+
+      /* Create a user */
+      loginAUser(email, password)
+         .then((result) => {
+            const user = result.user;
+            form.reset();
+         })
+         .catch((e) => console.log(e));
    };
    return (
       <div className="hero min-h-screen mb-[100px]">

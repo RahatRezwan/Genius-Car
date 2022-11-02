@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import loginImg from "../../../assets/images/login/login.svg";
 import facebook from "../../../assets/images/social/facebook.svg";
 import google from "../../../assets/images/social/google.svg";
 import linkedin from "../../../assets/images/social/linkedin.svg";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Register = () => {
+   const { createAUser } = useContext(AuthContext);
+
+   const handleSignUp = (event) => {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const password = form.password.value;
+
+      console.log(name, email, password);
+
+      /* Create a user */
+      createAUser(email, password)
+         .then((result) => {
+            const user = result.user;
+            form.reset();
+         })
+         .catch((e) => console.log(e));
+   };
    return (
       <div className="hero min-h-screen mb-[100px]">
          <div className="hero-content flex-col lg:flex-row w-full justify-between items-center">
@@ -16,7 +36,7 @@ const Register = () => {
                <h1 className="text-[40px] text-[#444444] font-semibold text-center mb-[50px]">
                   Register
                </h1>
-               <form className="w-full">
+               <form onSubmit={handleSignUp} className="w-full">
                   <div className="form-control">
                      <label className="label text-[18px] text-[#444444] font-semibold">
                         <span className="label-text">Name</span>
@@ -45,7 +65,7 @@ const Register = () => {
                      </label>
                      <input
                         type="password"
-                        name="passoword"
+                        name="password"
                         placeholder="Password"
                         className="input input-bordered"
                      />

@@ -8,6 +8,7 @@ const menuItems = [
    { id: "03", item: "Service", link: "/service" },
    { id: "04", item: "Blog", link: "/blog" },
    { id: "05", item: "Contact", link: "/contact" },
+   { id: "06", item: "Login", link: "/login" },
 ];
 
 const Header = () => {
