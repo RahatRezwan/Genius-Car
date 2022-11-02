@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import { Navigation, A11y, EffectFade } from "swiper";
+import { Navigation, A11y, EffectFade, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -18,11 +18,15 @@ const Banner = () => {
    return (
       <div className="mt-[50px] mb-[100px]">
          <Swiper
-            modules={[Navigation, EffectFade, A11y]}
+            modules={[Navigation, Autoplay, EffectFade, A11y]}
             spaceBetween={50}
             slidesPerView={1}
             effect={"fade"}
             loop={true}
+            autoplay={{
+               delay: 2500,
+               disableOnInteraction: false,
+            }}
             navigation={{
                nextEl: ".button-next",
                prevEl: ".button-prev",
