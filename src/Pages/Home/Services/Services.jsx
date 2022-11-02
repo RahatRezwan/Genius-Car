@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Services = () => {
    const [services, setServices] = useState([]);
+
    useEffect(() => {
-      fetch("services.json")
+      fetch("http://localhost:5000/services")
          .then((res) => res.json())
          .then((data) => setServices(data));
    }, []);
+
    return (
       <div>
          <div className="text-center">
@@ -32,9 +35,11 @@ const Services = () => {
                   <h1 className="text-[24px] font-bold text-[#444444] mb-5">{service.title}</h1>
                   <div className="flex justify-between text-[#FF3811] text-[20px] font-semibold">
                      <p className="m-0 p-0">Price: ${service.price} </p>
-                     <button>
-                        <FaArrowRight />
-                     </button>
+                     <Link to={`/checkout/${service._id}`}>
+                        <button>
+                           <FaArrowRight />
+                        </button>
+                     </Link>
                   </div>
                </div>
             ))}

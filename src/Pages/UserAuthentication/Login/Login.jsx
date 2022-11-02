@@ -17,7 +17,7 @@ const Login = () => {
 
       console.log(email, password);
 
-      /* Create a user */
+      /* Login a user */
       loginAUser(email, password)
          .then((result) => {
             const user = result.user;
