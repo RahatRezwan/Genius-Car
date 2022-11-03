@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../../../assets/images/login/login.svg";
 import facebook from "../../../assets/images/social/facebook.svg";
 import google from "../../../assets/images/social/google.svg";
@@ -8,6 +8,10 @@ import { AuthContext } from "../../../context/AuthProvider";
 
 const Login = () => {
    const { loginAUser } = useContext(AuthContext);
+   const navigate = useNavigate();
+   const location = useLocation();
+
+   const from = location.state?.from?.pathname || "/";
 
    const handleLogin = (event) => {
       event.preventDefault();
@@ -21,6 +25,7 @@ const Login = () => {
       loginAUser(email, password)
          .then((result) => {
             form.reset();
+            navigate(from, { replace: true });
          })
          .catch((e) => console.log(e));
    };

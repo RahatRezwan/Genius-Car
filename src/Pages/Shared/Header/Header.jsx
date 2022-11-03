@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/icons/logo.svg";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const menuItems = [
    { id: "01", item: "Home", link: "/" },
@@ -8,10 +9,17 @@ const menuItems = [
    { id: "03", item: "Service", link: "/service" },
    { id: "04", item: "Blog", link: "/blog" },
    { id: "05", item: "Contact", link: "/contact" },
-   { id: "06", item: "Login", link: "/login" },
 ];
 
 const Header = () => {
+   const { user, logoutAUser } = useContext(AuthContext);
+
+   const handleLogOut = () => {
+      logoutAUser()
+         .then(() => {})
+         .catch((e) => console.log(e));
+   };
+
    return (
       <div>
          <div className="navbar bg-base-100 max-w-[1200px] mx-auto my-[50px] p-0">
@@ -68,8 +76,32 @@ const Header = () => {
             </div>
 
             {/* Others */}
-            <div className="navbar-end">
-               <Link className="btn">Get started</Link>
+            <div className="navbar-end flex gap-3">
+               {user?.uid ? (
+                  <>
+                     <Link className="avatar">
+                        <div className="w-12 h-12 rounded-full">
+                           <img
+                              src={
+                                 user?.photoURL
+                                    ? user.photoURL
+                                    : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                              }
+                              alt=""
+                           />
+                        </div>
+                     </Link>
+                     <Link onClick={handleLogOut} className="btn">
+                        Logout
+                     </Link>
+                  </>
+               ) : (
+                  <>
+                     <Link to="/login" className="btn">
+                        Login
+                     </Link>
+                  </>
+               )}
             </div>
          </div>
       </div>

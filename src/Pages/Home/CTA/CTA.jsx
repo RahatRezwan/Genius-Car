@@ -5,7 +5,7 @@ import location from "../../../assets/images/cta/location.svg";
 
 const CTA = () => {
    return (
-      <div className="w-full py-[95px] px-[73px] bg-[#151515] rounded-[10px] mb-[130px] flex items-end justify-center gap-[60px]">
+      <div className="w-full py-[95px] px-[73px] bg-[#151515] rounded-[10px] mb-[130px] flex flex-col lg:flex-row items-end justify-center gap-[60px]">
          <div className="text-white flex gap-[20px] items-center">
             <img src={time} alt="" />
             <div>
